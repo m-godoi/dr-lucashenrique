@@ -230,6 +230,7 @@ body {
   background-size: cover;
   background-position: var(--foto-posicao);
   background-repeat: no-repeat;
+  filter: blur(4px);
   transform: scale(var(--foto-escala));
   transform-origin: var(--foto-origem);
   pointer-events: none;
@@ -509,26 +510,11 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(6px);
+  filter: blur(4px);
   transform: scale(1.1);
   pointer-events: none;
 }
 
-/* logo nítida e bem visível na base, com bordas que se fundem ao fundo */
-.bottom-showcase::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 70px;
-  width: min(960px, 100%);
-  height: var(--altura-logo);
-  transform: translateX(-50%);
-  z-index: -1;
-  background: url('./img/dr-lucas-logo.jpg') center / contain no-repeat;
-  -webkit-mask-image: radial-gradient(ellipse 62% 80% at 50% 50%, #000 58%, transparent 100%);
-  mask-image: radial-gradient(ellipse 62% 80% at 50% 50%, #000 58%, transparent 100%);
-  pointer-events: none;
-}
 
 .bottom-showcase .section-title {
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
