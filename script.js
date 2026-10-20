@@ -16,7 +16,7 @@ const DADOS_CLIENTE = {
       logoUrl: "./img/vertuo-logo.jpg",
       linkAgendamento: "https://wa.me/556140427485?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Lucas%20Henrique%20na%20Cl%C3%ADnica%20Vertuo.",
       linkLocalizacao: "https://maps.google.com/?q=Clinica+Vertuo+Asa+Sul+Brasilia",
-      linkInstagram: "https://instagram.com/"
+      linkInstagram: "https://www.instagram.com/clinicavertuo"
     },
     {
       regiao: "GAMA · BRASÍLIA/DF",
@@ -25,7 +25,7 @@ const DADOS_CLIENTE = {
       logoUrl: "./img/labrum-logo.jpg",
       linkAgendamento: "https://wa.me/5561991665151?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20Lucas%20Henrique%20na%20Cl%C3%ADnica%20Labrum.",
       linkLocalizacao: "https://maps.google.com/?q=Clinica+Labrum+Gama+Brasilia",
-      linkInstagram: "https://instagram.com/"
+      linkInstagram: "https://www.instagram.com/clinica.labrum"
     }
   ],
 
