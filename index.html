@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Dr. Lucas Henrique | Reumatologista</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tenor+Sans&family=Thasadith:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SÍMBOLOS VETORIAIS -->
+  <svg width="0" height="0" class="hidden-svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="grad-lh-oficial" x1="0%" y1="0%" x2="85%" y2="100%">
+        <stop offset="0%" stop-color="#3B787F" />
+        <stop offset="55%" stop-color="#3B787F" />
+        <stop offset="100%" stop-color="#F2EFEB" stop-opacity="0.85" />
+      </linearGradient>
+
+      <linearGradient id="grad-lh-negativo" x1="0%" y1="15%" x2="90%" y2="95%">
+        <stop offset="0%" stop-color="#F2EFEB" />
+        <stop offset="55%" stop-color="#99d5e3" />
+        <stop offset="100%" stop-color="#3B787F" />
+      </linearGradient>
+    </defs>
+
+    <symbol id="submark-lh" viewBox="0 0 160 140">
+      <path d="M 88,16 C 98,32 76,62 56,82 C 34,104 14,94 14,74 C 14,52 40,48 68,66 C 96,84 118,92 134,82 C 148,72 146,50 128,48 C 110,46 92,66 76,88"
+            fill="none" stroke="url(#grad-lh-negativo)" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 102,56 C 86,76 64,104 72,126"
+            fill="none" stroke="url(#grad-lh-oficial)" stroke-width="8" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <!-- CABEÇALHO -->
+  <header class="top-header">
+    <div id="header-pattern" class="header-pattern" aria-hidden="true">
+      <svg class="header-waves" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wave-fade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+            <stop offset="18%" stop-color="#ffffff" stop-opacity="1"/>
+            <stop offset="82%" stop-color="#ffffff" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+          <mask id="wave-mask"><rect width="1440" height="200" fill="url(#wave-fade)"/></mask>
+        </defs>
+        <g mask="url(#wave-mask)">
+      <path d="M0,38 C240,12 480,64 720,38 C960,12 1200,64 1440,38" fill="none" stroke="#F2EFEB" stroke-width="1.6" stroke-linecap="round" opacity="0.55" stroke-opacity="1">
+        <animate attributeName="d" dur="8.0s" begin="-0.0s" repeatCount="indefinite"
+                 calcMode="spline" keyTimes="0;0.33;0.66;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"
+                 values="M0,38 C240,12 480,64 720,38 C960,12 1200,64 1440,38;M0,38 C240,64 480,12 720,38 C960,64 1200,12 1440,38;M0,38 C240,22.4 480,53.6 720,38 C960,58.8 1200,17.2 1440,38;M0,38 C240,12 480,64 720,38 C960,12 1200,64 1440,38"/>
+      </path>
+      <path d="M0,62 C240,24 480,100 720,62 C960,24 1200,100 1440,62" fill="none" stroke="#7fd3dc" stroke-width="1.6" stroke-linecap="round" opacity="0.45" stroke-opacity="1">
+        <animate attributeName="d" dur="9.7s" begin="-1.9s" repeatCount="indefinite"
+                 calcMode="spline" keyTimes="0;0.33;0.66;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"
+                 values="M0,62 C240,24 480,100 720,62 C960,24 1200,100 1440,62;M0,62 C240,100 480,24 720,62 C960,100 1200,24 1440,62;M0,62 C240,39.2 480,84.8 720,62 C960,92.4 1200,31.599999999999998 1440,62;M0,62 C240,24 480,100 720,62 C960,24 1200,100 1440,62"/>
+      </path>
+      <path d="M0,86 C240,36 480,136 720,86 C960,36 1200,136 1440,86" fill="none" stroke="#3B787F" stroke-width="1.6" stroke-linecap="round" opacity="0.6" stroke-opacity="1">
+        <animate attributeName="d" dur="11.4s" begin="-3.8s" repeatCount="indefinite"
+                 calcMode="spline" keyTimes="0;0.33;0.66;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"
+                 values="M0,86 C240,36 480,136 720,86 C960,36 1200,136 1440,86;M0,86 C240,136 480,36 720,86 C960,136 1200,36 1440,86;M0,86 C240,56.0 480,116.0 720,86 C960,126.0 1200,46.0 1440,86;M0,86 C240,36 480,136 720,86 C960,36 1200,136 1440,86"/>
+      </path>
+      <path d="M0,110 C240,84 480,136 720,110 C960,84 1200,136 1440,110" fill="none" stroke="#F2EFEB" stroke-width="1.6" stroke-linecap="round" opacity="0.4" stroke-opacity="1">
+        <animate attributeName="d" dur="13.1s" begin="-5.7s" repeatCount="indefinite"
+                 calcMode="spline" keyTimes="0;0.33;0.66;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"
+                 values="M0,110 C240,84 480,136 720,110 C960,84 1200,136 1440,110;M0,110 C240,136 480,84 720,110 C960,136 1200,84 1440,110;M0,110 C240,94.4 480,125.6 720,110 C960,130.8 1200,89.2 1440,110;M0,110 C240,84 480,136 720,110 C960,84 1200,136 1440,110"/>
+      </path>
+      <path d="M0,134 C240,96 480,172 720,134 C960,96 1200,172 1440,134" fill="none" stroke="#5fb3bd" stroke-width="1.6" stroke-linecap="round" opacity="0.5" stroke-opacity="1">
+        <animate attributeName="d" dur="14.8s" begin="-7.6s" repeatCount="indefinite"
+                 calcMode="spline" keyTimes="0;0.33;0.66;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"
+                 values="M0,134 C240,96 480,172 720,134 C960,96 1200,172 1440,134;M0,134 C240,172 480,96 720,134 C960,172 1200,96 1440,134;M0,134 C240,111.2 480,156.8 720,134 C960,164.4 1200,103.6 1440,134;M0,134 C240,96 480,172 720,134 C960,96 1200,172 1440,134"/>
+      </path>
+      <path d="M0,158 C240,108 480,208 720,158 C960,108 1200,208 1440,158" fill="none" stroke="#99d5e3" stroke-width="1.6" stroke-linecap="round" opacity="0.35" stroke-opacity="1">
+        <animate attributeName="d" dur="16.5s" begin="-9.5s" repeatCount="indefinite"
+                 calcMode="spline" keyTimes="0;0.33;0.66;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"
+                 values="M0,158 C240,108 480,208 720,158 C960,108 1200,208 1440,158;M0,158 C240,208 480,108 720,158 C960,208 1200,108 1440,158;M0,158 C240,128.0 480,188.0 720,158 C960,198.0 1200,118.0 1440,158;M0,158 C240,108 480,208 720,158 C960,108 1200,208 1440,158"/>
+      </path>
+        </g>
+      </svg>
+    </div>
+    <div class="header-glow" aria-hidden="true"></div>
+
+    <div class="container header-row">
+      <div class="brand-left">
+        <div id="brand-logo-container" class="brand-logo">
+          <svg class="emblem-top animar-vivo"><use href="#submark-lh"></use></svg>
+        </div>
+        <div class="brand-text">
+          <h1 id="profile-name" class="profile-name"></h1>
+          <p id="profile-specialty" class="profile-specialty"></p>
+        </div>
+      </div>
+
+      <div class="header-symbol-right" aria-hidden="true">
+        <svg class="rheumato-blurred"><use href="#submark-lh"></use></svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO DE CLÍNICAS: CLÍNICA | FOTO | CLÍNICA -->
+  <main class="main-section">
+    <span class="fade fade-top" aria-hidden="true"></span>
+    <span class="fade fade-bottom" aria-hidden="true"></span>
+    <div class="container">
+      <div class="section-divider">
+        <h2 class="section-title">AGENDE SUA CONSULTA</h2>
+      </div>
+      <p class="section-subtitle">É só tocar nos botões</p>
+
+      <div class="showcase-grid">
+        <div id="clinic-left" class="clinic-slot"></div>
+
+        <div class="hero-spacer" aria-hidden="true"></div>
+
+        <div id="clinic-right" class="clinic-slot"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SEÇÃO FINAL E RODAPÉ -->
+  <section class="bottom-showcase">
+    <span class="fade fade-top" aria-hidden="true"></span>
+    <span class="fade fade-bottom" aria-hidden="true"></span>
+    <div class="container bottom-container">
+
+      <div class="section-divider">
+        <h2 class="section-title">CONTEÚDO</h2>
+      </div>
+
+      <div class="bottom-grid">
+        <div id="content-container" class="links-list"></div>
+
+        <div class="share-card">
+          <svg class="card-watermark" aria-hidden="true"><use href="#submark-lh"></use></svg>
+          <div class="credentials-box">
+            <i class="ph-duotone ph-shield-check credentials-icon" aria-hidden="true"></i>
+            <p id="card-credentials" class="card-credentials"></p>
+            <p id="card-responsible" class="card-responsible"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  
+    <!-- AVISO NO FUNDO ABSOLUTO DA PÁGINA -->
+    <footer class="footer">
+      <p id="footer-warning" class="footer-warning"></p>
+      </footer>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

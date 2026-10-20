@@ -1,0 +1,936 @@
+:root {
+  --brand-petroleo: #2A4653;
+  --brand-oceano: #3B787F;
+  --brand-grafite: #273135;
+  --brand-offwhite: #F2EFEB;
+  --bg-deep-grafite: #1c2529;
+  --card-border: rgba(242, 239, 235, 0.14);
+  --btn-outline-border: rgba(242, 239, 235, 0.22);
+  --neon-cyan: #00f5ff;
+
+  --font-logo: 'Tenor Sans', sans-serif;
+  --font-title: 'Thasadith', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius-card: 22px;
+  --radius-pill: 999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hidden-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-deep-grafite);
+  color: var(--brand-offwhite);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================================================
+   ANIMAÇÃO "VIVA" DO MONOGRAMA
+   ========================================================= */
+@keyframes pulso-vivo {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.4));
+  }
+  50% {
+    transform: scale(1.06) rotate(1.5deg);
+    filter: drop-shadow(0 0 18px rgba(0, 245, 255, 0.75));
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.4));
+  }
+}
+
+.animar-vivo {
+  animation: pulso-vivo 4.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.pop-btn {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease;
+  will-change: transform, box-shadow;
+  touch-action: manipulation;
+}
+
+.pop-btn:hover,
+.pop-btn:active,
+.pop-btn:focus-visible {
+  transform: translateY(-5px) scale(1.035);
+  box-shadow: 0 16px 28px -6px rgba(0, 0, 0, 0.75),
+              0 0 18px rgba(0, 245, 255, 0.25);
+  z-index: 3;
+}
+
+/* =========================================================
+   1. CABEÇALHO
+   ========================================================= */
+.top-header {
+  background: linear-gradient(180deg, var(--brand-petroleo) 0%, var(--bg-deep-grafite) 100%);
+  padding: 40px 0 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+}
+
+.header-waves {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: blur(2.5px) drop-shadow(0 0 8px rgba(0, 245, 255, 0.3));   /* borrão das linhas */
+}
+
+.header-glow {
+  position: absolute;
+  top: 50%;
+  left: 110px;
+  transform: translateY(-50%);
+  width: 420px;
+  height: 190px;
+  background: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.28) 0%, rgba(59, 120, 127, 0.18) 45%, rgba(0, 0, 0, 0) 75%);
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(24px);
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.brand-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emblem-top {
+  width: 106px;
+  height: 93px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-family: var(--font-logo);
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--brand-offwhite);
+  text-transform: uppercase;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.65),
+               0 0 24px rgba(0, 245, 255, 0.38);
+  line-height: 1.15;
+}
+
+.profile-specialty {
+  font-family: var(--font-title);
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  color: var(--brand-offwhite);
+  text-transform: uppercase;
+  margin-top: 6px;
+  text-shadow: 0 0 14px rgba(0, 245, 255, 0.35);
+}
+
+.header-symbol-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.rheumato-blurred {
+  width: 170px;
+  height: 120px;
+  filter: blur(3.5px) drop-shadow(0 0 26px rgba(0, 245, 255, 0.45));
+  opacity: 0.55;
+  transform: scale(1.15);
+}
+
+/* =========================================================
+   2. SEÇÃO DE CLÍNICAS: CLÍNICA | FOTO | CLÍNICA
+   ========================================================= */
+.main-section {
+  --foto-posicao: center 0%;   /* enquadramento da foto */
+  --foto-escala: 1.08;          /* zoom da foto */
+  --foto-origem: 100% 0%;      /* ponto fixo do zoom (direita = empurra o rosto p/ esquerda) */
+  --rosto-x: 24%;               /* posição do rosto NA IMAGEM (área nítida) */
+  --rosto-y: 40%;
+  position: relative;
+  background: var(--bg-deep-grafite);
+  padding: 90px 0 150px;
+  min-height: clamp(780px, 54vw, 1040px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.main-section::before,
+.main-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(28, 37, 41, 0.06), rgba(28, 37, 41, 0.06)),
+    url('./img/dr-lucas.jpg');
+  background-size: cover;
+  background-position: var(--foto-posicao);
+  background-repeat: no-repeat;
+  filter: blur(4px);
+  transform: scale(var(--foto-escala));
+  transform-origin: var(--foto-origem);
+  pointer-events: none;
+}
+
+/* camada levemente borrada: preenche a linha toda */
+.main-section::before {
+  filter: blur(1.5px);
+}
+
+/* camada nítida: rosto bem claro */
+.main-section::after {
+  -webkit-mask-image: radial-gradient(ellipse 64% 115% at var(--rosto-x) var(--rosto-y), #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 64% 115% at var(--rosto-x) var(--rosto-y), #000 55%, transparent 100%);
+}
+
+.main-section .container,
+.bottom-showcase .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* transições suaves entre título -> foto -> logo (quase imperceptíveis) */
+.fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 320px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fade-top {
+  top: 0;
+  background: linear-gradient(to bottom,
+    rgba(28, 37, 41, 1) 0%,
+    rgba(28, 37, 41, 0.9) 15%,
+    rgba(28, 37, 41, 0.68) 32%,
+    rgba(28, 37, 41, 0.42) 50%,
+    rgba(28, 37, 41, 0.2) 68%,
+    rgba(28, 37, 41, 0.06) 86%,
+    rgba(28, 37, 41, 0) 100%);
+}
+
+.fade-bottom {
+  bottom: 0;
+  background: linear-gradient(to top,
+    rgba(28, 37, 41, 1) 0%,
+    rgba(28, 37, 41, 0.9) 15%,
+    rgba(28, 37, 41, 0.68) 32%,
+    rgba(28, 37, 41, 0.42) 50%,
+    rgba(28, 37, 41, 0.2) 68%,
+    rgba(28, 37, 41, 0.06) 86%,
+    rgba(28, 37, 41, 0) 100%);
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(242, 239, 235, 0.3);
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand-offwhite);
+  white-space: nowrap;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--brand-offwhite);
+  opacity: 0.95;
+  margin-top: 6px;
+  margin-bottom: 32px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Mobile: espaço do rosto em cima, cards embaixo */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.clinic-slot {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-spacer {
+  order: -1;
+  height: 300px;
+}
+
+.clinic-card {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  background: rgba(30, 52, 61, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65);
+}
+
+.card-watermark {
+  position: absolute;
+  top: -12px;
+  right: -18px;
+  width: 175px;
+  height: 145px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.clinic-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.clinic-logo-box {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  background: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.clinic-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.clinic-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.clinic-region {
+  font-family: var(--font-title);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 235, 0.85);
+}
+
+.clinic-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--brand-offwhite);
+  letter-spacing: -0.01em;
+}
+
+.clinic-phone {
+  font-size: 0.95rem;
+  color: rgba(242, 239, 235, 0.9);
+}
+
+.clinic-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.clinic-secondary-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--brand-offwhite);
+  cursor: pointer;
+}
+
+.btn i {
+  font-size: 1.15rem;
+}
+
+.btn-primary {
+  background-color: var(--brand-oceano);
+  padding: 13px 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #468a92;
+}
+
+.btn-outline {
+  background-color: rgba(39, 49, 53, 0.45);
+  border: 1px solid var(--btn-outline-border);
+  color: var(--brand-offwhite);
+  padding: 10px 14px;
+  font-size: 0.86rem;
+}
+
+.btn-outline:hover,
+.btn-outline:active {
+  background-color: rgba(59, 120, 127, 0.25);
+  border-color: var(--brand-offwhite);
+}
+
+/* =========================================================
+   3. SEÇÃO FINAL E RODAPÉ (LOGO DO DR. LUCAS)
+   ========================================================= */
+.bottom-showcase {
+  --altura-logo: clamp(170px, 34vw, 360px);
+  position: relative;
+  background: var(--bg-deep-grafite);
+  padding: 90px 0 calc(var(--altura-logo) + 70px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* fundo preenchido com a logo, levemente borrado */
+.bottom-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(28, 37, 41, 0.5), rgba(28, 37, 41, 0.5)),
+    url('./img/dr-lucas-logo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(4px);
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+
+
+.bottom-showcase .section-title {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.bottom-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.links-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.content-item {
+  background: rgba(42, 70, 83, 0.86);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-pill);
+  padding: 16px 22px;
+  color: var(--brand-offwhite);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.content-item:hover:not(.disabled),
+.content-item:active:not(.disabled) {
+  background: rgba(59, 120, 127, 0.92);
+  border-color: var(--brand-offwhite);
+}
+
+.content-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.content-item-left i {
+  font-size: 1.35rem;
+  color: var(--brand-offwhite);
+}
+
+.content-item.disabled {
+  opacity: 0.78;
+  cursor: default;
+}
+
+.badge-soon {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(242, 239, 235, 0.15);
+  color: var(--brand-offwhite);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.share-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(42, 70, 83, 0.86);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.credentials-box {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.credentials-icon {
+  font-size: 1.85rem;
+  color: var(--brand-offwhite);
+  margin-bottom: 4px;
+}
+
+.card-credentials {
+  font-family: var(--font-logo);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--brand-offwhite);
+  letter-spacing: 0.08em;
+}
+
+.card-responsible {
+  font-size: 0.86rem;
+  color: rgba(242, 239, 235, 0.82);
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer-warning {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--neon-cyan);
+  background: rgba(28, 37, 41, 0.78);
+  border: 1px solid rgba(0, 245, 255, 0.25);
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.7),
+               0 0 22px rgba(0, 245, 255, 0.4);
+}
+
+/* =========================================================
+   4. RESPONSIVIDADE
+   ========================================================= */
+@media (min-width: 768px) {
+  .top-header {
+    padding: 54px 0 50px;
+  }
+
+  .profile-name {
+    font-size: 3.05rem;
+  }
+
+  .rheumato-blurred {
+    width: 220px;
+    height: 135px;
+    filter: blur(4px) drop-shadow(0 0 28px rgba(0, 245, 255, 0.5));
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+  }
+}
+
+/* Mobile/tablet: espaço do rosto em cima, cards embaixo */
+@media (max-width: 1099px) {
+  .main-section {
+    --foto-posicao: 10% 12%;
+    --foto-escala: 1.05;
+    --foto-origem: center;
+    min-height: 0;
+    padding: 70px 0 130px;
+    justify-content: flex-start;
+  }
+
+  .main-section::before,
+  .main-section::after {
+    bottom: auto;
+    height: 680px;
+  }
+
+  .main-section::before {
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  }
+
+  .main-section::after {
+    -webkit-mask-image:
+      linear-gradient(to bottom, #000 70%, transparent 100%),
+      radial-gradient(ellipse 60% 34% at 50% 52%, #000 45%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to bottom, #000 70%, transparent 100%),
+      radial-gradient(ellipse 60% 34% at 50% 52%, #000 45%, transparent 100%);
+    mask-composite: intersect;
+  }
+
+  .showcase-grid {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop: caixas grandes, cards "em pé", rosto livre e nítido */
+@media (min-width: 1100px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .main-section {
+    padding: 140px 0 160px;
+  }
+
+  /* títulos da seção da foto em cor escura da paleta (Petróleo) */
+  .main-section .section-title,
+  .main-section .section-subtitle {
+    color: #2B5A61;   /* Oceano escurecido */
+    opacity: 1;
+    font-weight: 700;
+    text-shadow: 0 1px 12px rgba(242, 239, 235, 0.9),
+                 0 0 4px rgba(242, 239, 235, 0.6);
+  }
+
+  .main-section .section-subtitle {
+    font-weight: 700;
+  }
+
+  /* degradê do topo mais curto: não escurece mais o rosto nem o título */
+  .main-section .fade-top {
+    height: 190px;
+  }
+
+  .main-section .section-divider::before,
+  .main-section .section-divider::after {
+    background: rgba(43, 90, 97, 0.55);
+  }
+
+  /* centraliza título/subtítulo exatamente sobre as 2 clínicas */
+  .main-section .section-divider,
+  .main-section .section-subtitle {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(clamp(0px, 9vw, 170px));
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+  }
+
+  /* clínicas */
+  .showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 360px));
+    justify-content: center;
+    gap: 28px;
+    max-width: 760px;
+    margin: 0 auto;
+    transform: translateX(clamp(0px, 9vw, 170px));
+  }
+
+  .hero-spacer {
+    display: none;
+  }
+
+  .clinic-card {
+    padding: 40px 30px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .clinic-header {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .clinic-logo-box {
+    width: 124px;
+    height: 124px;
+    min-width: 124px;
+    border-radius: 22px;
+    padding: 8px;
+  }
+
+  .clinic-info {
+    align-items: center;
+    gap: 6px;
+  }
+
+  .clinic-region {
+    font-size: 0.88rem;
+  }
+
+  .clinic-name {
+    font-size: 1.85rem;
+  }
+
+  .clinic-phone {
+    font-size: 1.15rem;
+  }
+
+  .clinic-buttons {
+    gap: 14px;
+  }
+
+  .btn {
+    font-size: 1.05rem;
+    gap: 10px;
+  }
+
+  .btn i {
+    font-size: 1.35rem;
+  }
+
+  .btn-primary {
+    padding: 18px 22px;
+  }
+
+  .btn-outline {
+    padding: 15px 18px;
+    font-size: 1rem;
+  }
+
+  .clinic-secondary-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .clinic-card .card-watermark {
+    width: 210px;
+    height: 175px;
+  }
+
+  /* caixas de conteúdo */
+  .bottom-container {
+    gap: 44px;
+  }
+
+  .bottom-grid {
+    gap: 32px;
+  }
+
+  .links-list {
+    gap: 20px;
+  }
+
+  .content-item {
+    padding: 26px 32px;
+    font-size: 1.15rem;
+  }
+
+  .content-item-left {
+    gap: 16px;
+  }
+
+  .content-item-left i {
+    font-size: 1.7rem;
+  }
+
+  .badge-soon {
+    font-size: 0.78rem;
+    padding: 7px 16px;
+  }
+
+  .share-card {
+    padding: 44px 30px;
+  }
+
+  .credentials-icon {
+    font-size: 2.6rem;
+  }
+
+  .card-credentials {
+    font-size: 1.45rem;
+  }
+
+  .card-responsible {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-left {
+    gap: 14px;
+  }
+
+  .emblem-top {
+    width: 74px;
+    height: 65px;
+  }
+
+  .profile-name {
+    font-size: 1.55rem;
+  }
+
+  .profile-specialty {
+    font-size: 0.8rem;
+    letter-spacing: 0.24em;
+  }
+
+  .rheumato-blurred {
+    width: 98px;
+    height: 74px;
+  }
+
+  .footer-warning {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .clinic-secondary-row {
+    grid-template-columns: 1fr;
+  }
+}
